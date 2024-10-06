@@ -11,7 +11,7 @@ num_simulations = st.number_input("Número de simulaciones:", min_value=1, value
 peso_minimo = st.number_input("Peso mínimo por unidad (gramos):", min_value=0.0, value=0.5, format="%.3f")
 peso_maximo = st.number_input("Peso máximo por unidad (gramos):", min_value=0.0, value=1.5, format="%.3f")
 peso_configurar = st.number_input("Peso a configurar en la máquina (gramos):", min_value=0.0, value=1.0, format="%.3f")
-unidades_por_bolsa = st.number_input("Unidades por bolsa:", min_value=1, value=10, step=1)
+unidades_por_bolsa = st.number_input("Unidades por bolsa:", min_value=1, value=100, step=1)
 
 # Botón para realizar la simulación
 if st.button("Realizar simulación"):
