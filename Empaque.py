@@ -7,20 +7,16 @@ import pandas as pd
 st.title("Simulación de llenado de bolsas de globos")
 
 # Entrada de datos
-num_simulations = st.number_input("Número de simulaciones:", min_value=1, value=1000, step=1)     
+num_simulations = st.number_input("Número de simulaciones:", min_value=1, value=1000, step=1)
 peso_minimo = st.number_input("Peso mínimo por unidad (gramos):", min_value=0.0, value=0.5, format="%.3f")
 peso_maximo = st.number_input("Peso máximo por unidad (gramos):", min_value=0.0, value=1.5, format="%.3f")
-peso_promedio = st.number_input("Promedio ponderado (gramos):", min_value=0.0, value=1.0, format="%.3f")
-peso_configurar = st.number_input("Peso a configurar en la máquina (gramos):", min_value=0.0, value=1.0, format="%.3f")
+peso_configurar = st.number_input("Peso promedio (gramos):", min_value=0.0, value=1.0, format="%.3f")
 unidades_por_bolsa = st.number_input("Unidades por bolsa:", min_value=1, value=100, step=1)
 
 # Botón para realizar la simulación
 if st.button("Realizar simulación"):
-    # Ajustar el rango de pesos basado en el promedio ponderado
+    # Simulación de pesos
     pesos = np.random.uniform(peso_minimo, peso_maximo, (num_simulations, unidades_por_bolsa))
-    
-    # Ajustar pesos para que el promedio ponderado esté más cerca del peso promedio
-    pesos += (peso_promedio - np.mean(pesos, axis=1, keepdims=True))
     
     # Calcular el peso total por bolsa
     pesos_totales = np.sum(pesos, axis=1)
