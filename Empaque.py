@@ -38,7 +38,3 @@ if st.button("Realizar simulación"):
 
     # Mostrar el gráfico en Streamlit
     st.pyplot(fig)
-
-
-
-
